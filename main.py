@@ -67,8 +67,9 @@ def main(argv):
         except KeyboardInterrupt:
             do_exit = True
          
-    serial.stop()
-    
+    serial1.stop()
+    serial2.stop()
+ 
     print "\r\nDone"
     
 if __name__ == '__main__':
