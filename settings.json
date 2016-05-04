@@ -1,0 +1,34 @@
+{
+    "py/object": "settings.Settings", 
+    "tcpclient": {
+        "py/object": "tcpclient.tcpclientsettings", 
+    	"ip": "192.168.99.100",
+    	"port": 1337,
+    	"anchor_id": 1
+    }, 
+    "cpSerial1": {
+        "py/object": "cpSerial.CpSerialSettings", 
+        "parity": "N", 
+        "baudrate": 115200, 
+        "readline": 0, 
+        "bytesize": 8, 
+        "xonxoff": 0, 
+        "rtscts": 0, 
+        "timeout": 0, 
+        "stopbits": 1, 
+        "port": "/dev/cu.usbserial-AL00XWR8"
+    }, 
+    "cpSerial2": {
+        "py/object": "cpSerial.CpSerialSettings", 
+        "parity": "N", 
+        "baudrate": 115200, 
+        "readline": 0, 
+        "bytesize": 8, 
+        "xonxoff": 0, 
+        "rtscts": 0, 
+        "timeout": 0, 
+        "stopbits": 1, 
+        "port": "/dev/cu.usbserial-AL00XWR8"
+    }, 
+    "filename": ""
+}
