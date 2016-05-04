@@ -34,11 +34,13 @@ class CpSerialSettings():
 
 class CpSerialService(threading.Thread):
     
-    def __init__(self, settings=None, loggerName='CpSerialService'):
+    def __init__(self, settings=None, display = None, side = 0, loggerName='CpSerialService'):
         threading.Thread.__init__(self)
         self._putData = None
         self.stop_event = threading.Event()
         self.received_bytes = 0
+        self.display = display
+        self.side = side
         self.logger = logging.getLogger(loggerName)
         self.ser = serial.Serial()
         self.ser.timeout = 0
@@ -101,7 +103,8 @@ class CpSerialService(threading.Thread):
                     self.received_bytes = self.received_bytes + 1
                     if c == '\r':
                         self.records = self.records + 1
-                        print(self.ser.port + ": " + data.decode("utf-8"))
+#                        print(self.ser.port + ": " + data.decode("utf-8"))
+                        self.display.push(self.side, data.decode("utf-8"))
                         del data[:]
                     else:
                         if c != '\n':

@@ -8,6 +8,7 @@ import sys
 from settings import Settings
 import jsonpickle
 from cpSerial import CpSerialService
+from display import Display
 import time
 
 HOST, PORT = "localhost", 1337
@@ -51,12 +52,14 @@ def main(argv):
     print "Loaded settings from " + settings.filename
     print str(settings)
 
+    display = Display()
+
     print "Starting serial service 1"
-    serial1 = CpSerialService(settings.cpSerial1)
+    serial1 = CpSerialService(settings.cpSerial1, display, 0)
     serial1.start()
     
     print "Starting serial service 2"
-    serial2 = CpSerialService(settings.cpSerial2)
+    serial2 = CpSerialService(settings.cpSerial2, display, 1)
     serial2.start()
     print "Use Control-C to exit."
     
